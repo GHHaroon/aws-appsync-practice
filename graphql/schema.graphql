@@ -1,0 +1,28 @@
+# graphql/schema.graphql
+type Comment {
+  id: ID!
+  comment: String!
+  created_at: String!
+}
+
+input CommentInput {
+  id: ID!
+  comment: String!
+  created_at: String!
+}
+
+input UpdateCommentInput {
+  id: ID!
+  comment: String
+}
+
+type Query {
+  getCommentById(commentId: String!): Comment
+  listComments: [Comment]
+}
+
+type Mutation {
+  createComment(comment: CommentInput!): Comment
+  updateComment(comment: UpdateCommentInput!): Comment
+  deleteComment(commentId: String!): String
+}
